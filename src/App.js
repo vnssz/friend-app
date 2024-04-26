@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Login from "./Login";
+import FriendList from "./FriendList"; // Import the FriendList component
+import friendlistData from "./friendlist.json"; // Import the friendlist data
 
-function App() {
+const App = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const handleLogin = (username) => {
+    // Perform any necessary actions upon successful login
+    setCurrentUser(username);
+  };
+
+  const handleLogout = () => {
+    // Perform any necessary actions upon logout
+    setCurrentUser(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>FriendApp</h1>
+      {!currentUser ? (
+        <Login onLogin={handleLogin} />
+      ) : (
+        <>
+          <button onClick={handleLogout}>Logout</button> {/* Logout button */}
+          <FriendList
+            currentUser={currentUser}
+            friends={friendlistData.results}
+          />{" "}
+          {/* Render FriendList component */}
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;
