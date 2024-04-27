@@ -118,6 +118,7 @@
 
 .friend-info {
   padding: 10px;
+  margin: 0;
 }
 
 .friend-info h3 {
@@ -127,6 +128,7 @@
 
 .friend-info p {
   margin: 5px 0;
+  text-align: start;
 }
 
 .pagination {
