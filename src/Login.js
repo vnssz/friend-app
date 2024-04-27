@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import friendlistData from "./friendlist.json";
+import "./App.css";
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -20,7 +21,7 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div>
+    <div className="Login">
       <h2>Login</h2>
       <input
         type="text"

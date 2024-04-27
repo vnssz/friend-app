@@ -18,13 +18,13 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="App">
       <h1>FriendApp</h1>
       {!currentUser ? (
         <Login onLogin={handleLogin} />
       ) : (
-        <>
-          <button onClick={handleLogout}>Logout</button> {/* Logout button */}
+      <>
+          <button className="logout-button" onClick={handleLogout}>Logout</button> {/* Logout button */}
           <FriendList
             currentUser={currentUser}
             friends={friendlistData.results}
